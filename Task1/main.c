@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 // Function that converts the floor from char format to an integer format.
 int number_of_floor(char floor){
     if (floor == 'G'){
@@ -27,7 +28,7 @@ int number_of_floor(char floor){
 
 
 //Function that returns floor number always in correct format.
-char check(){
+char correct_floor(){
     //Creating and assigning two new variables, which represent floor in both formats.
     char floor;
     printf("Type the floor:\n");
@@ -41,14 +42,14 @@ char check(){
     if (num == -4){
         printf("Please, type the floor in the correct format(G, 1, 2, 3, 4, 5)\n");
         //Calling function recursively.
-        check();
+        correct_floor();
         return 1;
     }
 
     return floor;
 }
 
-
+//Three "global" variables.
 char floor1 = 'G';
 int num1 = 0;
 char general_answer;
@@ -57,15 +58,13 @@ int main() {
     printf("Do you want to proceed(Y, N):\n");
     scanf("%c", &general_answer);
 
-
-
     while (general_answer == 'Y') {
         //Assigning two variables, which represents the floor where lift is now.
         char floor0 = floor1;
         int num0 = number_of_floor(floor0);
 
         //Assigning two variables, which represents the floor where lift needs to get.
-        floor1 = check();
+        floor1 = correct_floor();
         num1 = number_of_floor(floor1);
 
         //Depending on type we have two possibilities.
@@ -129,3 +128,4 @@ int main() {
     printf("Thank you, bye!\n");
     return 0;
 }
+
