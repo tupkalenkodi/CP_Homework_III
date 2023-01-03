@@ -25,9 +25,9 @@ int number_of_floor(char floor){
     }
 }
 
+
 //Function that returns floor number always in correct format.
 char check(){
-
     //Creating and assigning two new variables, which represent floor in both formats.
     char floor;
     printf("Type the floor:\n");
@@ -54,15 +54,15 @@ int num1 = 0;
 char general_answer;
 int main() {
     //Ask if user wants to proceed.
-
     printf("Do you want to proceed(Y, N):\n");
     scanf("%c", &general_answer);
 
-    //Assigning two variables, which represents the floor where lift is now.
-    char floor0 = floor1;
-    int num0 = number_of_floor(floor0);
+
 
     while (general_answer == 'Y') {
+        //Assigning two variables, which represents the floor where lift is now.
+        char floor0 = floor1;
+        int num0 = number_of_floor(floor0);
 
         //Assigning two variables, which represents the floor where lift needs to get.
         floor1 = check();
@@ -77,7 +77,10 @@ int main() {
                     printf("This is the first floor\n");
                     break;
                 }
-
+                if (i == num1){
+                    printf("This is your floor, bye!");
+                    break;
+                }
                 printf("This is a floor number: %i\n", i);
 
                 printf("Do you want to leave(Y, N):\n");
@@ -85,6 +88,7 @@ int main() {
                 scanf("%c", &answer);
 
                 if (answer == 'Y') {
+                    printf("Have a nice day, bye!");
                     break;
                 }
 
@@ -93,10 +97,14 @@ int main() {
                 }
             }
         }
-        else if (num0 <= num1) {
+        else if (num0 <= num1){
             for (int i = num0; i <= num1; i++) {
                 if (i == 5) {
                     printf("This is the last floor\n");
+                    break;
+                }
+                if (i == num1){
+                    printf("This is your floor, bye!\n");
                     break;
                 }
                 printf("This is a floor number: %i\n", i);
@@ -106,6 +114,7 @@ int main() {
                 scanf("%c", &answer);
 
                 if (answer == 'Y') {
+                    printf("Have a nice day, bye!\n");
                     break;
                 }
                 else if (answer == 'N') {
@@ -117,6 +126,6 @@ int main() {
         getchar();
         scanf("%c", &general_answer);
     }
-     printf("Thank you, bye!\n");
+    printf("Thank you, bye!\n");
     return 0;
 }
