@@ -27,11 +27,11 @@ int main (){
     char hidden_word[20];
 
     //Choosing some random word.
-    char array_of_random_words[15][20] = {"extreme;", "clarify;", "ton;", "compartment;", "rung;", "grimace;", "freshman;","command;", "ghostwriter;", "core;", "rack;", "beneficiary;", "hot;", "adoption;", "fun"};
+    char array_of_random_words[15][20] = {"extreme;", "clarify;", "ton;", "compartment;", "rung;", "grimace;", "freshman;","command;", "ghostwriter;", "core;", "rack;", "beneficiary;", "hot;", "adoption;"};
     int random_number;
-    printf("Choose some random number from 1 to 15:\n");
+    printf("Choose some random number from 1 to 14:\n");
     scanf("%i", &random_number);
-    if (random_number != 1 && random_number != 2 && random_number != 3 && random_number != 4 && random_number != 5 && random_number != 6 && random_number != 7 && random_number != 8 && random_number != 9 && random_number != 10 && random_number != 11 && random_number != 12 && random_number != 13 && random_number != 14 && random_number != 15){
+    if (random_number != 1 && random_number != 2 && random_number != 3 && random_number != 4 && random_number != 5 && random_number != 6 && random_number != 7 && random_number != 8 && random_number != 9 && random_number != 10 && random_number != 11 && random_number != 12 && random_number != 13 && random_number != 14){
         printf("\n");
         printf("Provide me with correct number.\n");
         scanf("%i", &random_number);
