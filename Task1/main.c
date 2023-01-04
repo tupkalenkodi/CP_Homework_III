@@ -28,41 +28,41 @@ int number_of_floor(char floor){
 
 
 //Function that returns floor number always in correct format.
+char function_floor;
+int function_num;
 char correct_floor(){
     //Creating and assigning two new variables, which represent floor in both formats.
-    char floor;
     printf("Type the floor:\n");
     getchar();
-    scanf("%c", &floor);
+    scanf("%c", &function_floor);
 
-    int num;
-    num = number_of_floor(floor);
+    function_num = number_of_floor(function_floor);
 
     //Check if format is correct.
-    if (num == -4){
+    if (function_num == -4){
         printf("Please, type the floor in the correct format(G, 1, 2, 3, 4, 5)\n");
         //Calling function recursively.
         correct_floor();
-        return 1;
     }
 
-    return floor;
+    return function_floor;
 }
 
-//Three "global" variables.
+
 char floor1 = 'G';
 int num1 = 0;
 char general_answer;
 int main() {
+
     //Ask if user wants to proceed.
-    printf("Do you want to proceed(Y, N):\n");
+    printf("Do you want to proceed(Type Y for yes and N for no):\n");
     scanf("%c", &general_answer);
 
-    while (general_answer == 'Y') {
-        //Assigning two variables, which represents the floor where lift is now.
-        char floor0 = floor1;
-        int num0 = number_of_floor(floor0);
+    //Assigning two variables, which represents the floor where lift is now.
+    char floor0 = floor1;
+    int num0 = number_of_floor(floor0);
 
+    while (general_answer == 'Y') {
         //Assigning two variables, which represents the floor where lift needs to get.
         floor1 = correct_floor();
         num1 = number_of_floor(floor1);
@@ -70,16 +70,19 @@ int main() {
         //Depending on type we have two possibilities.
         char answer;
         if (num0 >= num1) {
-            for (int i = num0; i > num1; i--) {
+            for (int i = num0; i >= num1; i--) {
 
                 if (i == 0) {
-                    printf("This is the first floor\n");
+                    printf("This is a ground floor. Bye!\n");
+                    num0 = 0;
                     break;
                 }
                 if (i == num1){
-                    printf("This is your floor, bye!");
+                    printf("This is your floor number: %i. Bye!\n", num1);
+                    num0 = i;
                     break;
                 }
+
                 printf("This is a floor number: %i\n", i);
 
                 printf("Do you want to leave(Y, N):\n");
@@ -87,7 +90,8 @@ int main() {
                 scanf("%c", &answer);
 
                 if (answer == 'Y') {
-                    printf("Have a nice day, bye!");
+                    printf("Have a nice day, bye!\n");
+                    num0 = i;
                     break;
                 }
 
@@ -98,14 +102,18 @@ int main() {
         }
         else if (num0 <= num1){
             for (int i = num0; i <= num1; i++) {
+
                 if (i == 5) {
-                    printf("This is the last floor\n");
+                    printf("This is the last floor. Bye!\n");
+                    num0 = 5;
                     break;
                 }
                 if (i == num1){
-                    printf("This is your floor, bye!\n");
+                    printf("This is your floor number: %i. Bye!\n", num1);
+                    num0 = i;
                     break;
                 }
+
                 printf("This is a floor number: %i\n", i);
 
                 getchar();
@@ -114,6 +122,7 @@ int main() {
 
                 if (answer == 'Y') {
                     printf("Have a nice day, bye!\n");
+                    num0 = i;
                     break;
                 }
                 else if (answer == 'N') {
@@ -121,11 +130,12 @@ int main() {
                 }
             }
         }
-        printf("Do you want to proceed(Y, N):\n");
+        printf("\n");
+        printf("Do you want to proceed(Type Y for yes and N for no):\n");
         getchar();
         scanf("%c", &general_answer);
     }
+    printf("\n");
     printf("Thank you, bye!\n");
     return 0;
 }
-
