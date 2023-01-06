@@ -70,7 +70,7 @@ int main() {
         //Depending on type we have two possibilities.
         char answer;
         if (num0 >= num1) {
-            for (int i = num0; i >= num1; i--) {
+            for (int i = num0 - 1; i >= num1; i--) {
 
                 if (i == 0) {
                     printf("This is a ground floor. Bye!\n");
@@ -101,7 +101,7 @@ int main() {
             }
         }
         else if (num0 <= num1){
-            for (int i = num0; i <= num1; i++) {
+            for (int i = num0 + 1; i <= num1; i++) {
 
                 if (i == 5) {
                     printf("This is the last floor. Bye!\n");
